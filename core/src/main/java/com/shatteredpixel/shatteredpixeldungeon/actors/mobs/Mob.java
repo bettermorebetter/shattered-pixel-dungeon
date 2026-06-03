@@ -1046,7 +1046,8 @@ public abstract class Mob extends Char {
 
 		int[] dmgRange = damageRange();
 		if (dmgRange != null) {
-			desc += "\n\n" + Messages.get(Mob.class, "combat_info", dmgRange[0], dmgRange[1], attackSkill(Dungeon.hero));
+			//defenseSkill (raw field) rather than defenseSkill(hero), which can read 0 when the mob hasn't noticed us
+			desc += "\n\n" + Messages.get(Mob.class, "combat_info", dmgRange[0], dmgRange[1], attackSkill(Dungeon.hero), defenseSkill);
 		}
 
 		for (Buff b : buffs(ChampionEnemy.class)){
