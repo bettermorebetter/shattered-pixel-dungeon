@@ -89,6 +89,15 @@ public class GnollGuard extends Mob {
 	}
 
 	@Override
+	public int[] damageRange() {
+		if (enemy != null && !Dungeon.level.adjacent(pos, enemy.pos)){
+			return new int[]{ 16, 22 };
+		} else {
+			return new int[]{ 6, 12 };
+		}
+	}
+
+	@Override
 	public int attackProc(Char enemy, int damage) {
 		int dmg = super.attackProc(enemy, damage);
 		if (enemy == Dungeon.hero && !Dungeon.level.adjacent(pos, enemy.pos) && dmg > 12){

@@ -73,6 +73,11 @@ public class RipperDemon extends Mob {
 	}
 
 	@Override
+	public int[] damageRange() {
+		return new int[]{ 15, 25 };
+	}
+
+	@Override
 	public int attackSkill( Char target ) {
 		return 30;
 	}

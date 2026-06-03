@@ -72,7 +72,12 @@ public class Succubus extends Mob {
 	public int damageRoll() {
 		return Random.NormalIntRange( 25, 30 );
 	}
-	
+
+	@Override
+	public int[] damageRange() {
+		return new int[]{ 25, 30 };
+	}
+
 	@Override
 	public int attackProc( Char enemy, int damage ) {
 		damage = super.attackProc( enemy, damage );

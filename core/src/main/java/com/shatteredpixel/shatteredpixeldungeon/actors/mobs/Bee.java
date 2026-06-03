@@ -118,7 +118,12 @@ public class Bee extends Mob {
 	public int damageRoll() {
 		return Random.NormalIntRange( HT / 10, HT / 4 );
 	}
-	
+
+	@Override
+	public int[] damageRange() {
+		return new int[]{ HT / 10, HT / 4 };
+	}
+
 	@Override
 	public int attackProc( Char enemy, int damage ) {
 		damage = super.attackProc( enemy, damage );

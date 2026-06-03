@@ -61,6 +61,11 @@ public class GnollExile extends Gnoll {
 	}
 
 	@Override
+	public int[] damageRange() {
+		return new int[]{ 1, 10 };
+	}
+
+	@Override
 	public int attackSkill( Char target ) {
 		return 15;
 	}

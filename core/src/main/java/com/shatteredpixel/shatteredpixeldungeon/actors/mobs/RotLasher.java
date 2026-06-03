@@ -109,6 +109,11 @@ public class RotLasher extends Mob {
 	}
 
 	@Override
+	public int[] damageRange() {
+		return new int[]{ 10, 20 };
+	}
+
+	@Override
 	public int attackSkill( Char target ) {
 		return 25;
 	}

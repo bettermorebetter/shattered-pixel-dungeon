@@ -79,6 +79,11 @@ public class CrystalWisp extends Mob{
 	}
 
 	@Override
+	public int[] damageRange() {
+		return new int[]{ 5, 10 };
+	}
+
+	@Override
 	public int attackSkill( Char target ) {
 		return 18;
 	}

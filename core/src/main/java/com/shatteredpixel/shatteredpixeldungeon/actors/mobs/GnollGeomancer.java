@@ -152,6 +152,11 @@ public class GnollGeomancer extends Mob {
 	}
 
 	@Override
+	public int[] damageRange() {
+		return new int[]{ 3, 6 };
+	}
+
+	@Override
 	public int attackSkill( Char target ) {
 		return 20;
 	}

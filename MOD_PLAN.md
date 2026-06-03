@@ -38,11 +38,11 @@
   - 텍스트 키 `windows.wndhero$statstab.accuracy/.evasion` 영어·한국어 추가. `:core:compileJava` 통과.
 
 ### Phase 1 — 전투 가독성 (정보 제공 원칙)
-- [~] **1.1a** 적 데미지 정보 — 살펴보기 창(`WndInfoMob`)에 "공격력 X~Y / 정확성" 표시
+- [x] **1.1a** 적 데미지 정보 — 살펴보기 창(`WndInfoMob`)에 "공격력 X~Y / 정확성" 표시 ✅
   - 기반: `Char.damageRange()` 추가(부작용 없는 min/max 접근자, 기본 null). `damageRoll()` 직접 호출은 **금지**(CrystalMimic 등 부작용 있음).
   - 표시: `Mob.info()`에서 `damageRange()!=null`이면 `combat_info` 줄 덧붙임. 키 영/한 추가.
-  - **적용 완료(1지역):** Rat, Snake, Gnoll, Crab, Swarm. ✅ 컴파일 통과.
-  - **남은 작업(단순 데이터 입력):** 나머지 전 지역 몹에 `damageRange()` 오버라이드. 조건부 몹 주의(Brute 분노, Elemental, Bee=HT기반, 미믹류).
+  - **적용 완료: 36개 몹** (일반 적 전반 + 조건부: Brute 분노, Bee=HT, Piranha=깊이, GnollGuard 원/근거리, Elemental 소환여부). ✅ 컴파일 통과.
+  - **의도적 제외(null=표시안함):** 미믹류(CrystalMimic/EbonyMimic/Mimic, 부작용·기습 배율), Goo(pumpedUp 부작용), Statue/석상(무기 기반), MirrorImage·PrismaticImage(분신), RotHeart(0뎀). 필요 시 추후 개별 처리.
 - [ ] **1.1b** 실시간 인텐트 아이콘 — 몹 머리 위 다음 행동(공격/이동/도주)+데미지. `EmoIcon` 패턴 활용. 행동 예측 로직 + 아이콘 그래픽 + 스레드 동기화 필요(난이도 높음).
   - 표시 가능: 데미지 범위, 다음 행동(공격/이동). 표시 불가(확률): 명중/회피 성공 여부.
 
@@ -75,7 +75,7 @@
 | Phase | 상태 | 비고 |
 |-------|------|------|
 | Phase 0 | ✅ 완료 | 0.1 정확성/회피 표시 완료 |
-| Phase 1 | 🔶 진행 중 | 1.1a 데미지 정보(1지역 완료). 다음: 나머지 몹 damageRange() → 1.1b 인텐트 아이콘 |
+| Phase 1 | 🔶 진행 중 | 1.1a 데미지 정보 완료(36몹). 다음: 1.1b 인텐트 아이콘 |
 | Phase 2~4 | ⬜ 대기 | - |
 
 기준점: 원작 v3.3.8 (`fork-start` 태그, 커밋 `7b8b845a7`).

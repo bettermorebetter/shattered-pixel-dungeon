@@ -84,7 +84,12 @@ public class Piranha extends Mob {
 	public int damageRoll() {
 		return Random.NormalIntRange( Dungeon.depth, 4 + Dungeon.depth * 2 );
 	}
-	
+
+	@Override
+	public int[] damageRange() {
+		return new int[]{ Dungeon.depth, 4 + Dungeon.depth * 2 };
+	}
+
 	@Override
 	public int attackSkill( Char target ) {
 		return 20 + Dungeon.depth * 2;

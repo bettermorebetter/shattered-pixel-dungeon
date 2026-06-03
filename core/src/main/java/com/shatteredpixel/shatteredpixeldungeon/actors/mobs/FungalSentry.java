@@ -72,6 +72,11 @@ public class FungalSentry extends Mob {
 	}
 
 	@Override
+	public int[] damageRange() {
+		return new int[]{ 5, 10 };
+	}
+
+	@Override
 	//TODO attack is a little permissive atm?
 	protected boolean canAttack( Char enemy ) {
 		return super.canAttack(enemy)

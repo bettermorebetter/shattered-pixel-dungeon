@@ -100,6 +100,11 @@ public class GnollSapper extends Mob {
 	}
 
 	@Override
+	public int[] damageRange() {
+		return new int[]{ 1, 6 };
+	}
+
+	@Override
 	public int attackSkill( Char target ) {
 		return 18;
 	}

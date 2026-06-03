@@ -87,7 +87,17 @@ public abstract class Elemental extends Mob {
 			return Random.NormalIntRange(5*regionScale, 5 + 5*regionScale);
 		}
 	}
-	
+
+	@Override
+	public int[] damageRange() {
+		if (!summonedALly) {
+			return new int[]{ 20, 25 };
+		} else {
+			int regionScale = Math.max(2, (1 + Dungeon.scalingDepth()/5));
+			return new int[]{ 5*regionScale, 5 + 5*regionScale };
+		}
+	}
+
 	@Override
 	public int attackSkill( Char target ) {
 		if (!summonedALly) {

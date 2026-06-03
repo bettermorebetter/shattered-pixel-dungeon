@@ -67,6 +67,11 @@ public class Guard extends Mob {
 		return Random.NormalIntRange(4, 12);
 	}
 
+	@Override
+	public int[] damageRange() {
+		return new int[]{ 4, 12 };
+	}
+
 	private boolean chain(int target){
 		if (chainsUsed || enemy.properties().contains(Property.IMMOVABLE))
 			return false;

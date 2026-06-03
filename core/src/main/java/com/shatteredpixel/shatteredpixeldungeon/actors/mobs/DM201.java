@@ -49,6 +49,11 @@ public class DM201 extends DM200 {
 		return Random.NormalIntRange( 15, 25 );
 	}
 
+	@Override
+	public int[] damageRange() {
+		return new int[]{ 15, 25 };
+	}
+
 	private boolean threatened = false;
 
 	@Override

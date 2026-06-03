@@ -94,6 +94,11 @@ public class CrystalGuardian extends Mob{
 	}
 
 	@Override
+	public int[] damageRange() {
+		return new int[]{ 10, 16 };
+	}
+
+	@Override
 	public int attackSkill( Char target ) {
 		return 20;
 	}

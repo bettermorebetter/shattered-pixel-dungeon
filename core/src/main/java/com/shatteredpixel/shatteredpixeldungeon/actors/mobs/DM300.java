@@ -96,6 +96,11 @@ public class DM300 extends Mob {
 	}
 
 	@Override
+	public int[] damageRange() {
+		return new int[]{ 15, 25 };
+	}
+
+	@Override
 	public int attackSkill( Char target ) {
 		return 20;
 	}

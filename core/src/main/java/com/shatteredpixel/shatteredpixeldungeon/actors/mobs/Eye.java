@@ -74,6 +74,11 @@ public class Eye extends Mob {
 	}
 
 	@Override
+	public int[] damageRange() {
+		return new int[]{ 20, 30 };
+	}
+
+	@Override
 	public int attackSkill( Char target ) {
 		return 30;
 	}
