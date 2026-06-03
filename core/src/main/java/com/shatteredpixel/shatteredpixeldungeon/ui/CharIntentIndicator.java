@@ -65,9 +65,10 @@ public class CharIntentIndicator extends Component {
 					shown = str;
 				}
 				CharSprite sprite = target.sprite;
+				//sit clearly above the health bar (which is drawn at sprite.y - 2)
 				text.setPos(
 						sprite.x + (sprite.width() - text.width()) / 2f,
-						sprite.y - text.height() - 1 );
+						sprite.y - text.height() - 5 );
 				PixelScene.align( text );
 				text.visible = true;
 				return;
