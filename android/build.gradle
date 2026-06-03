@@ -56,6 +56,11 @@ android {
     }
 }
 
+//name the output APK after the app instead of the default "android-<type>.apk"
+base {
+    archivesName = 'My Pixel Dungeon'
+}
+
 configurations { natives }
 
 dependencies {
