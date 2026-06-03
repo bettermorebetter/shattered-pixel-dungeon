@@ -33,7 +33,9 @@
 ## 🗺️ 단계별 로드맵
 
 ### Phase 0 — 정보 표시 (안전한 첫걸음)
-- [ ] **0.1** 정확성/회피 수치를 캐릭터 스탯창(`WndHero` StatsTab)에 표시
+- [x] **0.1** 정확성/회피 수치를 캐릭터 스탯창(`WndHero` StatsTab)에 표시 ✅
+  - `WndHero.java` StatsTab에 EXP 줄 뒤로 `accuracy`(=`attackSkill(null)`)·`evasion`(=`defenseSkill(null)`) 2줄 추가.
+  - 텍스트 키 `windows.wndhero$statstab.accuracy/.evasion` 영어·한국어 추가. `:core:compileJava` 통과.
 
 ### Phase 1 — 전투 가독성 (정보 제공 원칙)
 - [ ] **1.1** 적 인텐트 표시 (다음 행동 + 데미지 범위, 슬더스/Into the Breach 식)
@@ -67,8 +69,9 @@
 
 | Phase | 상태 | 비고 |
 |-------|------|------|
-| Phase 0 | ⬜ 시작 전 | 다음 작업: 0.1 정확성/회피 표시 |
-| Phase 1~4 | ⬜ 대기 | - |
+| Phase 0 | ✅ 완료 | 0.1 정확성/회피 표시 완료 |
+| Phase 1 | ⬜ 시작 전 | 다음 작업: 1.1 적 인텐트 표시 |
+| Phase 2~4 | ⬜ 대기 | - |
 
 기준점: 원작 v3.3.8 (`fork-start` 태그, 커밋 `7b8b845a7`).
 

@@ -193,6 +193,8 @@ public class WndHero extends WndTabbed {
 			if (hero.shielding() > 0)   statSlot( Messages.get(this, "health"), hero.HP + "+" + hero.shielding() + "/" + hero.HT );
 			else                        statSlot( Messages.get(this, "health"), (hero.HP) + "/" + hero.HT );
 			statSlot( Messages.get(this, "exp"), hero.exp + "/" + hero.maxExp() );
+			statSlot( Messages.get(this, "accuracy"), hero.attackSkill( null ) );
+			statSlot( Messages.get(this, "evasion"), hero.defenseSkill( null ) );
 
 			pos += GAP;
 
