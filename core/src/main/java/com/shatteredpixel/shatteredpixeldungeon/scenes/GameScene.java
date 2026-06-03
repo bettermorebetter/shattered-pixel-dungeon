@@ -94,6 +94,7 @@ import com.shatteredpixel.shatteredpixeldungeon.ui.AttackIndicator;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Banner;
 import com.shatteredpixel.shatteredpixeldungeon.ui.BossHealthBar;
 import com.shatteredpixel.shatteredpixeldungeon.ui.CharHealthIndicator;
+import com.shatteredpixel.shatteredpixeldungeon.ui.CharIntentIndicator;
 import com.shatteredpixel.shatteredpixeldungeon.ui.GameLog;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Icons;
 import com.shatteredpixel.shatteredpixeldungeon.ui.InventoryPane;
@@ -1166,6 +1167,10 @@ public class GameScene extends PixelScene {
 	}
 	
 	public static void add( CharHealthIndicator indicator ){
+		if (scene != null) scene.healthIndicators.add(indicator);
+	}
+
+	public static void add( CharIntentIndicator indicator ){
 		if (scene != null) scene.healthIndicators.add(indicator);
 	}
 	

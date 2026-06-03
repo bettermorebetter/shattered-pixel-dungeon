@@ -43,8 +43,12 @@
   - 표시: `Mob.info()`에서 `damageRange()!=null`이면 `combat_info` 줄 덧붙임. 키 영/한 추가.
   - **적용 완료: 36개 몹** (일반 적 전반 + 조건부: Brute 분노, Bee=HT, Piranha=깊이, GnollGuard 원/근거리, Elemental 소환여부). ✅ 컴파일 통과.
   - **의도적 제외(null=표시안함):** 미믹류(CrystalMimic/EbonyMimic/Mimic, 부작용·기습 배율), Goo(pumpedUp 부작용), Statue/석상(무기 기반), MirrorImage·PrismaticImage(분신), RotHeart(0뎀). 필요 시 추후 개별 처리.
-- [ ] **1.1b** 실시간 인텐트 아이콘 — 몹 머리 위 다음 행동(공격/이동/도주)+데미지. `EmoIcon` 패턴 활용. 행동 예측 로직 + 아이콘 그래픽 + 스레드 동기화 필요(난이도 높음).
+- [x] **1.1b-MVP** 위협 데미지 표시 ✅ — 몹이 영웅을 사냥 중 + 공격 사거리 안이면 머리 위에 데미지 범위(빨강) 표시.
+  - `ui/CharIntentIndicator`(신규): `CharHealthIndicator`를 본뜬 따라다니는 요소. 매 프레임 `Mob.isThreateningHero()`로 표시/숨김 → 스레드 타이밍 훅 불필요, 새 아트 불필요(텍스트).
+  - `Mob.isThreateningHero()` = 영웅 생존 && enemy==영웅 && state==HUNTING && canAttack(영웅).
+  - `CharSprite`에서 체력바와 나란히 생성/정리. `GameScene.add(CharIntentIndicator)` 오버로드 추가. ✅ 컴파일 통과(인게임 육안 검증은 미실시).
   - 표시 가능: 데미지 범위, 다음 행동(공격/이동). 표시 불가(확률): 명중/회피 성공 여부.
+- [ ] **1.1b-확장(후속)** 더 풍부한 인텐트: 이동/도주/디버프 등 행동 종류 아이콘(아트 필요), 사거리 밖 사냥 몹 표시 등.
 
 ### Phase 2 — 씨앗 / 돌 / 새총 클러스터
 - [ ] **2.1** 돌(Runestone) 시스템 완전 삭제 (12 스톤 + 룬스톤방 2종 + Generator/Level/Shop 참조 정리)
@@ -75,7 +79,7 @@
 | Phase | 상태 | 비고 |
 |-------|------|------|
 | Phase 0 | ✅ 완료 | 0.1 정확성/회피 표시 완료 |
-| Phase 1 | 🔶 진행 중 | 1.1a 데미지 정보 완료(36몹). 다음: 1.1b 인텐트 아이콘 |
+| Phase 1 | 🔶 진행 중 | 1.1a 완료(36몹), 1.1b-MVP 위협표시 완료. 다음: 인게임 검증 또는 Phase 2 |
 | Phase 2~4 | ⬜ 대기 | - |
 
 기준점: 원작 v3.3.8 (`fork-start` 태그, 커밋 `7b8b845a7`).

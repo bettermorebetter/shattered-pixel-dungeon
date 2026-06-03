@@ -1055,6 +1055,16 @@ public abstract class Mob extends Char {
 
 		return desc;
 	}
+
+	//true when this mob is actively hunting the hero and could attack them right now.
+	//used by the intent indicator to telegraph an incoming attack.
+	public boolean isThreateningHero() {
+		return Dungeon.hero != null
+				&& Dungeon.hero.isAlive()
+				&& enemy == Dungeon.hero
+				&& state == HUNTING
+				&& canAttack(Dungeon.hero);
+	}
 	
 	public void notice() {
 		sprite.showAlert();

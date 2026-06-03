@@ -24,6 +24,7 @@ package com.shatteredpixel.shatteredpixeldungeon.sprites;
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
+import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.Mob;
 import com.shatteredpixel.shatteredpixeldungeon.effects.DarkBlock;
 import com.shatteredpixel.shatteredpixeldungeon.effects.EmoIcon;
 import com.shatteredpixel.shatteredpixeldungeon.effects.Flare;
@@ -42,6 +43,7 @@ import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.PixelScene;
 import com.shatteredpixel.shatteredpixeldungeon.tiles.DungeonTilemap;
 import com.shatteredpixel.shatteredpixeldungeon.ui.CharHealthIndicator;
+import com.shatteredpixel.shatteredpixeldungeon.ui.CharIntentIndicator;
 import com.watabou.glwrap.Matrix;
 import com.watabou.glwrap.Vertexbuffer;
 import com.watabou.noosa.Camera;
@@ -115,6 +117,7 @@ public class CharSprite extends MovieClip implements Tweener.Listener, MovieClip
 	
 	protected EmoIcon emo;
 	protected CharHealthIndicator health;
+	protected CharIntentIndicator intent;
 
 	private Tweener jumpTweener;
 	private Callback jumpCallback;
@@ -157,6 +160,13 @@ public class CharSprite extends MovieClip implements Tweener.Listener, MovieClip
 				health = new CharHealthIndicator(ch);
 			} else {
 				health.target(ch);
+			}
+			if (ch instanceof Mob) {
+				if (intent == null) {
+					intent = new CharIntentIndicator((Mob)ch);
+				} else {
+					intent.target((Mob)ch);
+				}
 			}
 		}
 
@@ -315,6 +325,9 @@ public class CharSprite extends MovieClip implements Tweener.Listener, MovieClip
 		
 		if (health != null){
 			health.killAndErase();
+		}
+		if (intent != null){
+			intent.killAndErase();
 		}
 	}
 	
@@ -758,6 +771,9 @@ public class CharSprite extends MovieClip implements Tweener.Listener, MovieClip
 		
 		if (health != null){
 			health.killAndErase();
+		}
+		if (intent != null){
+			intent.killAndErase();
 		}
 	}
 
