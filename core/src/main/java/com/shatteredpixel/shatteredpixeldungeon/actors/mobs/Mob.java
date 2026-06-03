@@ -1044,6 +1044,11 @@ public abstract class Mob extends Char {
 	public String info(){
 		String desc = description();
 
+		int[] dmgRange = damageRange();
+		if (dmgRange != null) {
+			desc += "\n\n" + Messages.get(Mob.class, "combat_info", dmgRange[0], dmgRange[1], attackSkill(Dungeon.hero));
+		}
+
 		for (Buff b : buffs(ChampionEnemy.class)){
 			desc += "\n\n_" + Messages.titleCase(b.name()) + "_\n" + b.desc();
 		}

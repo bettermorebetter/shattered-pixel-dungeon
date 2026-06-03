@@ -714,6 +714,12 @@ public abstract class Char extends Actor {
 	public int damageRoll() {
 		return 1;
 	}
+
+	//returns the {min, max} damage of damageRoll() for display purposes, or null if unknown.
+	//unlike damageRoll(), this must have NO side effects (some mobs mutate state in damageRoll()).
+	public int[] damageRange() {
+		return null;
+	}
 	
 	//TODO it would be nice to have a pre-armor and post-armor proc.
 	// atm attack is always post-armor and defence is already pre-armor

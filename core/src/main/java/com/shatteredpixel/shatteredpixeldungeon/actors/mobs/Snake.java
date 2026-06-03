@@ -49,7 +49,12 @@ public class Snake extends Mob {
 	public int damageRoll() {
 		return Random.NormalIntRange( 1, 4 );
 	}
-	
+
+	@Override
+	public int[] damageRange() {
+		return new int[]{ 1, 4 };
+	}
+
 	@Override
 	public int attackSkill( Char target ) {
 		return 10;

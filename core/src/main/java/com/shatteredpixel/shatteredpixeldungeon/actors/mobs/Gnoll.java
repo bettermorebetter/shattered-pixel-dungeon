@@ -45,6 +45,11 @@ public class Gnoll extends Mob {
 	public int damageRoll() {
 		return Random.NormalIntRange( 1, 6 );
 	}
+
+	@Override
+	public int[] damageRange() {
+		return new int[]{ 1, 6 };
+	}
 	
 	@Override
 	public int attackSkill( Char target ) {

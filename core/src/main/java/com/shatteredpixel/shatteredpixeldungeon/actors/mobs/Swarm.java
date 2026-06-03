@@ -83,7 +83,12 @@ public class Swarm extends Mob {
 	public int damageRoll() {
 		return Random.NormalIntRange( 1, 4 );
 	}
-	
+
+	@Override
+	public int[] damageRange() {
+		return new int[]{ 1, 4 };
+	}
+
 	@Override
 	public int defenseProc( Char enemy, int damage ) {
 
